@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search concept</title>
+    
+    <style>
+        body{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            
+        }
+        .container input{
+            height:40px;
+            width: 300px;
+            font-size: 15px;
+            text-align: center;
+            border-radius: 20px;
+        }
+        .container{
+            width: 300px;
+            height: 500px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <input type="text" id="search" placeholder="Search..." onkeyup="search(event)">
+        <div class="texts">
+            <h1>white shirt</h1>
+            <h1>black Shirt</h1>
+            <h1>Green shirt</h1>
+            <h1>Red shirt</h1>
+            <h1>Yellow shirt</h1>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    var enteredText = "";
+    var container = document.querySelector(".container");
+    var texts = container.querySelectorAll("h1");
+
+    function search(event){
+            enteredText = event.target.value.toUpperCase();
+        for(var i=0;i<texts.length;i++){
+            if(texts[i].textContent.toUpperCase().indexOf(enteredText) < 0){
+                texts[i].style.display = "none";
+            }
+            else{
+                texts[i].style.display = "block";
+            }
+
+        }
+    }
+</script>
+
+</html>
